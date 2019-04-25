@@ -1,78 +1,32 @@
-body{
-    margin: 0;
-    background: #EFEFEF;
-}
-*{
-    margin: 0px;
-    padding: 0px;
-}
-a{
-    text-decoration: none;
-}
-h1,h2,h3,h4,h5,h6{
-    font-weight: normal;
-}
-hr{
-    border: none;
-    border-top: 1px solid #DEDEDE;
-    height: 0;
-}
-ol,ul{
-    list-style: none;
-}
-.clearfix::after{
-    content: '';
-    clear: both;
-    display: block;
-}
-.topnavbar{
-    padding: 20px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-.topnavbar .topnavbar-inner{
-     padding: 0 16px;
-}
-.topnavbar .topnavbar-inner .logo{
-    font-size:24px ;
-    font-family: "Arial Black";
-    float: left;
-    padding: 2px 0 ;
-}
-.topnavbar .topnavbar-inner .logo .rs{
-    color: #E6686A;
-    padding-right: 4px;
-}
-.topnavbar .topnavbar-inner .logo .card{
-    color: #9A9DA2;
-}
-.topnavbar .topnavbar-inner > nav {
-    float:right; 
-    padding-top: 5px;
-}
-.topnavbar .topnavbar-inner > nav > ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.topnavbar .topnavbar-inner > nav > ul > li{
-    float: left;
-    margin-left: 17px;
-    margin-right: 17px;
-}
-.topnavbar .topnavbar-inner > nav > ul > li > a{
-    border-bottom: 3px solid transparent;
-    border-top: 3px solid transparent;
-    padding: 6px 0;
-    font-size: 12px;
-    font-weight: bold;
-    display: block;
-    color: #b7b7b7;
-}
-.topnavbar .topnavbar-inner > nav > ul > li > a:hover{
-    border-bottom: 3px solid #E06567;
+body{ margin: 0; background: #EFEFEF; }
+*{ margin: 0px; padding: 0px; }
+a{ text-decoration: none; }
+h1,h2,h3,h4,h5,h6{ font-weight: normal; }
+hr{ border: none; border-top: 1px solid #DEDEDE; height: 0; }
+ol,ul{ list-style: none; }
+.clearfix::after{ content: ''; clear: both; display: block; }
+
+.topnavbar{ padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%; transition: all 0.5s; color: #b7b7b7;}
+.topnavbar.sticky{ background: white; padding:10px 0; z-index:1; color: #3d4451; box-shadow: 0 0 10px rgba(0,0,0,0.25)}
+.topnavbar .submenu{ display: none; position: absolute; right: 0; top: 100%; background: white; color: #3d4451; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.topnavbar li.active> .submenu{ display: block; margin:1px; animation: submenuSlide .3s; }
+@keyframes submenuSlide{
+    0%{ margin-right:100%; }
+    100%{ margin-right:0%; }
+} 
+.topnavbar .submenu li{ white-space: nowrap; padding: 5px 10px; }
+.topnavbar .topnavbar-inner{ padding: 0 16px; }
+.topnavbar .topnavbar-inner .logo{ font-size:24px ; font-family: "Arial Black"; float: left;padding: 2px 0 ;}
+.topnavbar .topnavbar-inner .logo .rs{ color: #E6686A; padding-right: 4px; }
+.topnavbar .topnavbar-inner .logo .card{ color: #9A9DA2; }
+.topnavbar .topnavbar-inner > nav { float:right; padding-top: 5px; } 
+.topnavbar .topnavbar-inner > nav > ul{ list-style: none; margin: 0; padding: 0; }
+.topnavbar .topnavbar-inner > nav > ul > li{ float: left; margin-left: 17px; margin-right: 17px; position: relative; }
+.topnavbar .topnavbar-inner > nav > ul > li > a{ padding: 6px 0; font-size: 12px; font-weight: bold; display: block; color: inherit; }
+.topnavbar .topnavbar-inner > nav > ul > li.active > a::after{ content:''; display: block; position: absolute; top: 100%; left:0; width: 100%; background: #e06567; height: 3px; animation: menuSlide .3s; }
+@keyframes menuSlide{
+    0%{ width: 0; }
+    100%{ width:100% }
 }
 .banner{
     background-image: url(./img/rs-cover.jpg);
