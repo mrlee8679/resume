@@ -5,11 +5,18 @@ h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 hr{ border: none; border-top: 1px solid #DEDEDE; height: 0; }
 ol,ul{ list-style: none; }
 .clearfix::after{ content: ''; clear: both; display: block; }
+[data-x].offset{
+  transform: translateY(100px);
+}
+[data-x]{
+  transform: translate(0);
+  transition:all, 0.5s;
+}
 
 .topnavbar{ padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%; transition: all 0.5s; color: #b7b7b7;}
 .topnavbar.sticky{ background: white; padding:10px 0; z-index:1; color: #3d4451; box-shadow: 0 0 10px rgba(0,0,0,0.25)}
-.topnavbar .submenu{ display: none; position: absolute; right: 0; top: 100%; background: white; color: #3d4451; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
-.topnavbar li.active> .submenu{ display: block; margin:1px; animation: submenuSlide .3s; cursor: pointer; }
+.topnavbar .submenu{ display: none; position: absolute; right: 0; top: 100%; background: white; color: #3d4451; box-shadow: 0 0 5px rgba(0,0,0,0.5);}
+.topnavbar li.active> .submenu{ display: block; margin-top:3px; animation: submenuSlide 0.3s; cursor: pointer; }
 @keyframes submenuSlide{    0%{ margin-right:100%; }    100%{ margin-right:0%; }} 
 .topnavbar .submenu li{ white-space: nowrap; padding: 5px 10px; }
 .topnavbar .topnavbar-inner{ padding: 0 16px; }
@@ -20,7 +27,8 @@ ol,ul{ list-style: none; }
 .topnavbar .topnavbar-inner > nav > ul{ list-style: none; margin: 0; padding: 0; }
 .topnavbar .topnavbar-inner > nav > ul > li{ float: left; margin-left: 17px; margin-right: 17px; position: relative; }
 .topnavbar .topnavbar-inner > nav > ul > li > a{ padding: 6px 0; font-size: 12px; font-weight: bold; display: block; color: inherit; }
-.topnavbar .topnavbar-inner > nav > ul > li.active > a::after{ content:''; display: block; position: absolute; top: 100%; left:0; width: 100%; background: #e06567; height: 3px; animation: menuSlide .3s; }
+.topnavbar .topnavbar-inner > nav > ul > li.active > a::after{ content:''; display: block; position: absolute; top: 100%; left:0; width: 100%; background: #e06567; height: 3px; animation: menuSlide 0.3s; border-radius: 2px; }
+.topnavbar .topnavbar-inner > nav > ul > li.highlight > a::after{ content:''; display: block; position: absolute; top: 100%; left:0; width: 100%; background: #e06567; height: 3px; animation: menuSlide 0.3s; border-radius: 2px; }
 @keyframes menuSlide{    0%{ width: 0; }    100%{ width:100% } }
 
 .banner{ background-image: url(./img/rs-cover.jpg); height: 515px; background-size: cover; background-position: center center;}
@@ -58,8 +66,10 @@ main{ margin-top: -340px; }
 .skill h3{ font-size: 14px; line-height: 1.1; padding-right: 40px;}
 .skill ol li{ float: left; width: 48%; box-sizing: border-box;}
 .skill ol li:nth-child(even){ float: right;}
-.skill .progressbar{ height: 5px; background: #FAE1E1; border-radius: 2px; margin: 4px 0 40px;}
-.skill .progress{ height: 100%; background: #E6686A; border-radius: 2px;}
+.skill .progressbar{ height: 5px; background: #FAE1E1; border-radius: 2px; margin: 4px 0 40px; overflow: hidden; }
+.skill .progress{ height: 100%; background: #E6686A; border-radius: 2px; transform: translateX(0); transition: all 1s;}
+.skill.offset .progress{transform: translateX(-100%);}
+
 
 .portfolio { text-align: center; margin-bottom: 100px;}
 .portfolio nav{ display: inline-block; vertical-align: top; margin-top: 32px;}
